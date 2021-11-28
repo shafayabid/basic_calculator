@@ -1,0 +1,12 @@
+body{
+    background-color: hsl(222, 26%, 31%) !important;
+}
+.card{
+    background-color: hsl(223, 31%, 20%);
+}
+.result{
+    height: 85px;
+}
+.btn{
+    background-color: hsl(30, 25%, 89%);
+}
