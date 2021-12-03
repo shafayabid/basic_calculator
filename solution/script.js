@@ -18,8 +18,9 @@ document.getElementById("multiply").addEventListener("click", getMultiply);
 document.getElementById("equal").addEventListener("click", compute);
 
 
-var digitCount = 0;
-var input = [];
+var digitCountDisplay = 0;
+var digitCountAll = 0;
+var inputDisplay = [];
 var inputAll = [];
 var Operator = '';
 var operatorCount = 0;
@@ -27,124 +28,162 @@ var result = 0;
 
 function getSeven(){
 
-    input[digitCount] = 7;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 7;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 7;
+    digitCountAll++;
     
 }
 function getEight(){
 
-    input[digitCount] = 8;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 8;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 8;
+    digitCountAll++;
 }
 function getNine(){
 
-    input[digitCount] = 9;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 9;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 9;
+    digitCountAll++;
 }
 function getFour(){
 
-    input[digitCount] = 4;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 4;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 4;
+    digitCountAll++;
 }
 function getFive(){
 
-    input[digitCount] = 5;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 5;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 5;
+    digitCountAll++;
 }
 function getSix(){
 
-    input[digitCount] = 6;
-    digitCount++;
-    printOnScreen(input);
-    inputAll = input;
+    inputDisplay[digitCountDisplay] = 6;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+    inputAll = inputDisplay;
+
+    inputAll[digitCountAll] = 6;
+    digitCountAll++;
 }
 function getOne(){
 
-    input[digitCount] = 1;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 1;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 1;
+    digitCountAll++;
 }
 function getTwo(){
 
-    input[digitCount] = 2;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 2;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 2;
+    digitCountAll++;
 }
 function getThree(){
 
-    input[digitCount] = 3;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 3;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 3;
+    digitCountAll++;
 }
 function getZero(){
 
-    input[digitCount] = 0;
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = 0;
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
+
+    inputAll[digitCountAll] = 0;
+    digitCountAll++;
 }
 function getReset(){
 
-    input = [];
+    inputDisplay = [];
     inputAll = [];
-    printOnScreen(input);
+    digitCountDisplay = 0;
+    digitCountAll = 0;
+    printOnScreen(inputDisplay);
 }
 function getDelete(){
 
-    input.pop();
-    printOnScreen(input);
+    inputDisplay.pop();
+    printOnScreen(inputDisplay);
+    digitCountDisplay--;
+
+    if(inputAll[digitCountAll] != "+" || inputAll[digitCountAll] != "-" || inputAll[digitCountAll] != "*" || inputAll[digitCountAll] != "/"){
+        inputAll.pop();
+        digitCountAll--;
+    }
 }
 function getPoint(){
-    input[digitCount] = ".";
-    digitCount++;
-    printOnScreen(input);
+    inputDisplay[digitCountDisplay] = ".";
+    digitCountDisplay++;
+    printOnScreen(inputDisplay);
 }
 function getPlus(){
-    input[digitCount] = "+";
-    digitCount++;
-    Operator = '+'
+    inputAll[digitCountAll] = "+";
+    Operator = "+";
     printOther(Operator);
     operatorCount++;
+    digitCountAll++;
 
-    inputAll = inputAll.concat(input);
-    input = [];
+    inputDisplay.splice(0, inputDisplay.length);
+    digitCountDisplay = 0;
 
 }
 function getMinus(){
-    input[digitCount] = "-";
-    digitCount++;
-    Operator = '-'
+    inputAll[digitCountAll] = "-";
+    Operator = "-";
     printOther(Operator);
     operatorCount++;
+    digitCountAll++;
 
-    inputAll = inputAll.concat(input);
-    input = [];
+    inputDisplay.splice(0, inputDisplay.length);
+    digitCountDisplay = 0;
 
 }
 function getMultiply(){
-    input[digitCount] = "*";
-    digitCount++;
-    Operator = 'x'
+    inputAll[digitCountAll] = "*";
+    Operator = "x";
     printOther(Operator);
     operatorCount++;
+    digitCountAll++;
 
-    inputAll = inputAll.concat(input);
-    input = [];
+    inputDisplay.splice(0, inputDisplay.length);
+    digitCountDisplay = 0;
 
 }
 function getDivide(){
-    input[digitCount] = "/";
-    digitCount++;
-    Operator = '/'
+    inputAll[digitCountAll] = "/";
+    Operator = "/";
     printOther(Operator);
     operatorCount++;
+    digitCountAll++;
 
-    inputAll = inputAll.concat(input);
-    input = [];
+    inputDisplay.splice(0, inputDisplay.length);
+    digitCountDisplay = 0;
 
 }
 function printOnScreen(num){
@@ -163,14 +202,17 @@ function printOther(num){
 }
 function compute()
 {
-    inputAll = inputAll.concat(input);
-    inputAll = inputAll.join('').split('');
+    inputAll = inputAll.concat(inputDisplay);
+    console.log(inputAll);
     console.log((inputAll.join('')).toString());
     result = math.evaluate((inputAll.join('')).toString());
     console.log(result);
-    console.log()
-    // getReset();
+    getReset();
 }
+
+
+
+
 
 
 
