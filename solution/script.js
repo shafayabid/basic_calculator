@@ -16,6 +16,9 @@ document.getElementById("minus").addEventListener("click", getMinus);
 document.getElementById("divide").addEventListener("click", getDivide);
 document.getElementById("multiply").addEventListener("click", getMultiply);
 document.getElementById("equal").addEventListener("click", compute);
+document.getElementById("first").addEventListener("click", theme1);
+document.getElementById("second").addEventListener("click", theme2);
+document.getElementById("third").addEventListener("click", theme3);
 
 
 var digitCountDisplay = 0;
@@ -161,6 +164,25 @@ function compute()
     var result = math.evaluate((inputAll.join('')).toString());
     printOther(result.toString());
 }
+function theme1()
+{
+    var theme = document.getElementsByTagName('link')[1];
+    theme.setAttribute('href', 'style.css');
+}
+function theme2()
+{
+    var theme = document.getElementsByTagName('link')[1];
+    theme.setAttribute('href', 'style2.css');
+}
+function theme3()
+{
+    var theme = document.getElementsByTagName('link')[1];
+    theme.setAttribute('href', 'style3.css');
+}
+
+
+
+
 
 
 
