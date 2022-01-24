@@ -30,7 +30,6 @@ var operatorCount = 0;
 var result = 0;
 var current_theme = localStorage.getItem('theme');
 
-console.log(current_theme);
 
 if(current_theme == "1")
 {
