@@ -28,6 +28,27 @@ var inputAll = [];
 var Operator = '';
 var operatorCount = 0;
 var result = 0;
+var current_theme = localStorage.getItem('theme');
+
+console.log(current_theme);
+
+if(current_theme == "1")
+{
+    var theme = document.getElementsByTagName('link')[1];
+    theme.setAttribute('href', 'style.css');
+    document.getElementById("first").checked = true;
+}
+else if(current_theme == "2")
+{
+    var theme = document.getElementsByTagName('link')[1];
+    theme.setAttribute('href', 'style2.css');
+    document.getElementById("second").checked = true;
+}
+else{
+    var theme = document.getElementsByTagName('link')[1];
+    theme.setAttribute('href', 'style3.css');
+    document.getElementById("third").checked = true;
+}
 
 function getSeven(){
 
@@ -164,21 +185,28 @@ function compute()
     var result = math.evaluate((inputAll.join('')).toString());
     printOther(result.toString());
 }
+
 function theme1()
 {
+    localStorage.setItem('theme', '1');
     var theme = document.getElementsByTagName('link')[1];
     theme.setAttribute('href', 'style.css');
 }
 function theme2()
 {
+    localStorage.setItem('theme', '2');
     var theme = document.getElementsByTagName('link')[1];
     theme.setAttribute('href', 'style2.css');
 }
 function theme3()
 {
+    localStorage.setItem('theme', '3');
     var theme = document.getElementsByTagName('link')[1];
     theme.setAttribute('href', 'style3.css');
 }
+
+
+
 
 
 
